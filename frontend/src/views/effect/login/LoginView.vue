@@ -1,6 +1,6 @@
 <template>
   <a-layout class="container">
-    <img src="@/assets/img/madoka&homura.webp" style="height: 561px"/>
+    <img src="@/assets/img/madoka&homura.webp" style="height: 570px"/>
     <a-form
         style="position:absolute;left:160px;top: 35%;width: 400px"
         :model="formState"
