@@ -34,15 +34,6 @@ class EffectController extends Controller {
    * login window
    */
   loginWindow(args) {
-
-    mysql.connection.query('select * from dict',(e,r,f)=>{
-      if (e){
-        console.log(e)
-        return;
-      }else {
-        console.log(r)
-      }
-    })
     const { width, height } = args;
     const win = CoreWindow.getMainWindow();
 
@@ -53,7 +44,7 @@ class EffectController extends Controller {
     win.setSize(size.width, size.height);
     win.setResizable(true);
     win.center();
-    win.setMenu(null)
+    win.setMenu('dev-show')
     win.resizable = false;
     win.show();
     win.focus();

@@ -41,8 +41,8 @@
 <script setup>
 import { reactive , ref , watch , getCurrentInstance , onMounted , defineComponent } from 'vue';
 import axios from "axios";
-import "@/utils/ipcRenderer";
-import {ipcApiRoute} from "@/api/main";
+import { ipcApiRoute } from '@/api/main';
+import { ipc } from '@/utils/ipcRenderer';
 const { proxy } = getCurrentInstance()
 
 const formState = reactive({
@@ -51,9 +51,16 @@ const formState = reactive({
   remember: true,
 });
 const onFinish = values => {
-  axios.post("/api/login").then(res=>{
-    console.log(res);
+  ipc.invoke(ipcApiRoute.login,{values}).then(r=>{
+    if (r === true){
+      proxy.$router.push({ name: 'Framework', params: {}});
+      ipc.invoke(ipcApiRoute.restoreWindow,{width:980, height: 650}).then(r=>{
+      })
+    }else {
+      alert("用户名或密码错误！")
+    }
   })
+
 };
 const onFinishFailed = errorInfo => {
   console.log('Failed:', errorInfo);

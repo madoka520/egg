@@ -25,7 +25,7 @@ const ipcApiRoute = {
   createPoolNotice: 'controller.framework.createPoolNotice',
   someJobByPool: 'controller.framework.someJobByPool',
   hello: 'controller.framework.hello',
-  openSoftware: 'controller.framework.openSoftware', 
+  openSoftware: 'controller.framework.openSoftware',
 
   // os
   messageShow: 'controller.os.messageShow',
@@ -53,6 +53,9 @@ const ipcApiRoute = {
   selectFile: 'controller.effect.selectFile',
   loginWindow: 'controller.effect.loginWindow',
   restoreWindow: 'controller.effect.restoreWindow',
+
+  //登录
+  login: 'controller.loginController.login'
 }
 
 /**

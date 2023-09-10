@@ -23,11 +23,13 @@ module.exports = (appInfo) => {
    * 主窗口
    */
   config.windowsOption = {
-    title: 'EE框架',
-    width: 980,
-    height: 650,
+    title: '萌兔管理系统',
+    width: 800,
+    height: 600,
     minWidth: 400,
     minHeight: 300,
+    resizable:false,
+    autoHideMenuBar:true,
     webPreferences: {
       webSecurity: false,
       contextIsolation: false, // false -> 可在渲染进程中使用electron的api，true->需要bridge.js(contextBridge)
