@@ -1,5 +1,5 @@
 'use strict';
-
+const mysql = require('../service/database/mysql')
 const { Controller } = require('ee-core');
 const { dialog } = require('electron');
 const _ = require('lodash');
@@ -34,16 +34,27 @@ class EffectController extends Controller {
    * login window
    */
   loginWindow(args) {
+
+    mysql.connection.query('select * from dict',(e,r,f)=>{
+      if (e){
+        console.log(e)
+        return;
+      }else {
+        console.log(r)
+      }
+    })
     const { width, height } = args;
     const win = CoreWindow.getMainWindow();
-    
+
     const size = {
-      width: width || 400,
-      height: height || 300
+      width: width || 800,
+      height: height || 600
     }
     win.setSize(size.width, size.height);
     win.setResizable(true);
     win.center();
+    win.setMenu(null)
+    win.resizable = false;
     win.show();
     win.focus();
   }

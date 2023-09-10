@@ -4,7 +4,7 @@
       <span>
           1. 登录
       </span>
-    </div>  
+    </div>
     <div class="one-block-2">
       <a-space>
         <a-button @click="loginWindow()">切换为登录窗口</a-button>
@@ -24,8 +24,8 @@ export default {
   methods: {
     loginWindow () {
       this.$router.push({ name: 'SpecialLoginWindow', params: {}});
-      ipc.invoke(ipcApiRoute.loginWindow, {width: 400, height: 300}).then(r => {      
-        // 
+      ipc.invoke(ipcApiRoute.loginWindow, {width: 800, height: 600}).then(r => {
+        //
       })
     },
   }
@@ -45,4 +45,3 @@ export default {
   }
 }
 </style>
-  

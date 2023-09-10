@@ -30,7 +30,7 @@ const constantRouterMap = [
             path: '/framework/socket/socketserver',
             name: 'FrameworkSocketSocketServer',
             component: () => import('@/views/framework/socket/SocketServer.vue')
-          }, 
+          },
           {
             path: '/framework/jsondb/index',
             name: 'FrameworkJsonDBIndex',
@@ -50,7 +50,7 @@ const constantRouterMap = [
             path: '/framework/updater/index',
             name: 'FrameworkUpdaterIndex',
             component: () => import('@/views/framework/updater/Index.vue')
-          }, 
+          },
           {
             path: '/framework/software/index',
             name: 'FrameworkSoftwareIndex',
@@ -66,7 +66,7 @@ const constantRouterMap = [
             name: 'FrameworkTestApiIndex',
             component: () => import('@/views/framework/testapi/Index.vue')
           },
-        ]  
+        ]
       },
       {
         path: '/os',
@@ -114,14 +114,14 @@ const constantRouterMap = [
             path: '/os/theme/index',
             name: 'OsThemeIndex',
             component: () => import('@/views/os/theme/Index.vue')
-          },   
+          },
           {
             path: '/os/system/index',
             name: 'OsSystemIndex',
             component: () => import('@/views/os/system/Index.vue')
           },
-        ]  
-      },      
+        ]
+      },
       {
         path: '/hardware',
         name: 'Hardware',
@@ -134,7 +134,7 @@ const constantRouterMap = [
             name: 'HardwarePrinterIndex',
             component: () => import('@/views/hardware/printer/Index.vue')
           },
-        ]  
+        ]
       },
       {
         path: '/effect',
@@ -153,7 +153,7 @@ const constantRouterMap = [
             name: 'EffectLoginIndex',
             component: () => import('@/views/effect/login/Index.vue')
           }
-        ]  
+        ]
       },
     ]
   },
@@ -168,7 +168,7 @@ const constantRouterMap = [
       {
         path: '/login',
         name: 'SpecialLoginWindow',
-        component: () => import('@/views/effect/login/Window.vue')
+        component: () => import('@/views/effect/login/LoginView.vue')
       },
     ]
   },
