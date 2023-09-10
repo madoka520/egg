@@ -1,6 +1,6 @@
 <template>
   <a-layout class="container">
-    <img src="@/assets/img/madoka&homura.webp" style="height: 570px"/>
+    <img src="@/assets/img/madoka&homura.webp" style="height: 561px;pointer-events: none"/>
     <a-form
         style="position:absolute;left:160px;top: 35%;width: 400px"
         :model="formState"
@@ -39,10 +39,10 @@
   </a-layout>
 </template>
 <script setup>
-import { reactive , ref , watch , getCurrentInstance , onMounted , defineComponent } from 'vue';
-import axios from "axios";
-import { ipcApiRoute } from '@/api/main';
-import { ipc } from '@/utils/ipcRenderer';
+import {getCurrentInstance, reactive} from 'vue';
+import {ipcApiRoute} from '@/api/main';
+import {ipc} from '@/utils/ipcRenderer';
+
 const { proxy } = getCurrentInstance()
 
 const formState = reactive({
@@ -50,8 +50,21 @@ const formState = reactive({
   password: '',
   remember: true,
 });
+
+async function assignCookiesToFormState() {
+  try {
+    const cookies = await ipc.invoke(ipcApiRoute.loginCookies, {});
+    Object.assign(formState, cookies);
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+assignCookiesToFormState();
+
+
 const onFinish = values => {
-  ipc.invoke(ipcApiRoute.login,{values}).then(r=>{
+  ipc.invoke(ipcApiRoute.login,values).then(r=>{
     if (r === true){
       proxy.$router.push({ name: 'Framework', params: {}});
       ipc.invoke(ipcApiRoute.restoreWindow,{width:980, height: 650}).then(r=>{

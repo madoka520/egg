@@ -11,8 +11,12 @@ class LoginController extends Controller {
         super(ctx);
     }
 
+    async loginCookies(){
+        return await Services.get('loginService').getCookies()
+    }
 
     async login(args) {
+        await Services.get('loginService').setCookies(args)
         return await Services.get('loginService').login(args)
     }
 

@@ -55,7 +55,8 @@ const ipcApiRoute = {
   restoreWindow: 'controller.effect.restoreWindow',
 
   //登录
-  login: 'controller.loginController.login'
+  login: 'controller.loginController.login',
+  loginCookies: 'controller.loginController.loginCookies'
 }
 
 /**
