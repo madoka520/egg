@@ -12,9 +12,7 @@ class LoginService extends Service{
      * test
      */
     login(args){
-        return loginDao.query(args).then(res=>{
-            return res
-        })
+        return loginDao.query(args)
     }
 }
 
